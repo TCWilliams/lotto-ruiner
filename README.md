@@ -3,6 +3,8 @@ When your friends start asking you to buy lotto tickets with them, you have to f
 
 VueJS app to show lotto results and cost over many games. Stops if you win powerball or first division if not playing powerball.
 
+Cost and average prize amounts obtained from lotto.co.nz
+
 
 ## Project setup
 ```
