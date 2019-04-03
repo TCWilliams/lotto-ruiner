@@ -245,7 +245,7 @@ export default {
           if (powerballMatch) {
             this.winStatistics.powerball.count++;
             this.winStatistics.powerball.total += this.prizeAmounts.powerball;
-            this.winStatistics.powerball += this.prizeAmounts.powerball;
+            this.winStatistics.totalWin += this.prizeAmounts.powerball;
             this.winner = true;
           }
           this.winStatistics.divisionOne.count++;
