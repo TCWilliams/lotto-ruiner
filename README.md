@@ -1,4 +1,10 @@
 # lotto-ruiner
+When your friends start asking you to buy lotto tickets with them, you have to find a way to demonstrate the futility. 
+
+VueJS app to show lotto results and cost over many games. Stops if you win powerball or first division if not playing powerball.
+
+Cost and average prize amounts obtained from lotto.co.nz
+
 
 ## Project setup
 ```
@@ -15,16 +21,5 @@ npm run serve
 npm run build
 ```
 
-### Run your tests
-```
-npm run test
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-# lotto-ruiner
