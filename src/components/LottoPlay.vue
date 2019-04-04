@@ -1,29 +1,10 @@
 <template>
   <div class="background">
-    <div class="margin-bottom">
-      <h1>Lotto Dream Ruiner</h1>
-    </div>
-    <div>
-      <label>How many lines <input type="number"
-             v-model=linesPerGame>
-      </label>
-      </div>
-      <div>
-        <label>Powerball <input type="checkbox"
-              v-model=powerball>
-        </label>
-      </div> 
-    <div>
-    <button class="btn btn-primary" 
-            @click="init"
-            :disabled="gameInterVal">Play</button>
-    <button class="btn btn-warning" @click="stop">Stop</button>
-    </div>
     <div class="col-6 centered">
-      <label class="col-3">Years passed</label>
-      <input class="col-3" 
-             v-model="years"
-             disabled>
+        <button class="btn btn-primary" 
+              @click="init"
+              :disabled="gameInterVal">Play</button>
+        <button class="btn btn-warning" @click="stop">Stop</button>
     </div>
     <div class="row">
       <table class="table table-striped col-4 centered">
@@ -73,7 +54,7 @@
         </tbody>
       </table>
     </div>
-    <div class="col-6 centered">
+    <!-- <div class="col-6 centered">
       <label class="col-3">Total winnings</label>
       <input class="col-3" 
              v-model="winStatistics.totalWin"
@@ -84,7 +65,7 @@
       <input class=col-3 
              v-model="spend"
              disabled>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -92,13 +73,20 @@
 export default {
   name: "LottoPlay",
 
+  computed: {
+    linesPerGame() {
+      return this.$store.state.gameOptions.linesPerGame;
+    },
+    powerball() {
+      return this.$store.state.gameOptions.powerball;
+    }
+  },
+
   data() {
     return {
       gameInterVal: null,
       targetNumbers: {},
       gameRows: [], // list of player rows
-      linesPerGame: 16,
-      powerball: true,
       winner: false,
 
       winStatistics: {
@@ -154,6 +142,7 @@ export default {
 
   methods: {
     init: function() {
+      console.log(this.linesPerGame)
       // run the game until first division has been one!
       this.gameInterVal = setInterval(() => {
         !this.winner && this.runGame();
@@ -161,8 +150,8 @@ export default {
     },
 
     stop: function() {
-      clearInterval(this.gameInterVal) 
-      this.gameInterVal = null
+      clearInterval(this.gameInterVal);
+      this.gameInterVal = null;
     },
 
     /* returns an array of 6 random numbers between 1 and 40 */
@@ -196,13 +185,13 @@ export default {
       this.gameRows.length = 0; // reset rows
       this.targetNumbers = {};
       this.count++;
-      this.spend += this.linesPerGame * this.lineCost
+      this.spend += this.linesPerGame * this.lineCost;
       if (this.powerball) {
         this.spend += this.linesPerGame * this.powerballCost;
       }
-        
 
       this.years = Math.floor(this.count / 52);
+      
 
       (this.targetNumbers.row = this.getRandomSix()), // get target numbers and bonus
         (this.targetNumbers.bonus = this.getBonus());
@@ -224,7 +213,7 @@ export default {
           line.row.includes(e)
         ); // array of matched numbers
         const bonusMatch = line.row.includes(this.targetNumbers.bonus);
-        let powerballMatch
+        let powerballMatch;
         if (this.powerball) {
           powerballMatch =
             line.powerball && line.powerball === this.targetNumbers.powerball;
@@ -283,16 +272,17 @@ export default {
           }
           break;
       }
+      this.$store.dispatch('results/updateTotalWin', this.winStatistics.totalWin)
+      this.$store.dispatch('results/updateSpend', this.spend)
+      this.$store.dispatch('results/updateYears', this.years)
     }
   }
 };
 </script>
 
 <style scoped>
-
 .centered {
   margin: auto;
   width: 50% !important;
 }
-
 </style>

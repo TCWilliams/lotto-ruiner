@@ -1,17 +1,26 @@
 <template>
   <div id="app">
+    <div class="margin-bottom">
+      <h1>Lotto Dream Ruiner</h1>
+    </div>
+    <SetOptions/>
     <LottoPlay/>
+    <Results/>
   </div>
 </template>
 
 <script>
+import SetOptions from './components/SetOptions.vue'
 import LottoPlay from './components/LottoPlay.vue'
+import Results from './components/Results.vue'
 
 export default {
   name: 'app',
   components: {
-    LottoPlay
-  }
+    SetOptions,
+    LottoPlay,
+    Results,
+  }, 
 }
 </script>
 
