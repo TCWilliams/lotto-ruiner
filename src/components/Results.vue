@@ -1,5 +1,5 @@
 <template>
-  <div class="col-6 centered">
+  <div class="centered">
     <div>
       <label class="col-6">Total winnings</label>
       <input class="col-6" 
