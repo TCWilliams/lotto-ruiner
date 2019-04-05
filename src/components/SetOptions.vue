@@ -21,7 +21,7 @@ export default {
 
   data() {
     return {
-      linesPerGame: 0,
+      linesPerGame: 10,
       powerball: false,
     };
   },
