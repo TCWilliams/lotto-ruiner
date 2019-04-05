@@ -1,6 +1,6 @@
 <template>
-  <div class="background">
-    <div class="col-6 centered">
+  <div>
+    <div class="col-6 centered mb-3">
         <button class="btn btn-primary" 
               @click="init"
               :disabled="gameInterVal">Play</button>
@@ -10,9 +10,9 @@
       <table class="table table-striped col-4 centered">
         <thead>
           <tr>
-            <td class="w-40">Division</td>
-            <td class="w-30">Number of wins</td>
-            <td class="w-30">Amount won</td>
+            <td class="w-25">Division</td>
+            <td class="w-25">Number of wins</td>
+            <td class="w-25">Amount won</td>
           </tr>
         </thead>
         <tbody>

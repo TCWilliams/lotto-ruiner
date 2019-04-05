@@ -1,23 +1,21 @@
 <template>
-  <div class="col-9 centered">
-    <div>
-      <label class="col-6">Total winnings</label>
-      <input class="col-6" 
-             v-model="totalWin"
-             disabled>
-    </div>
-    <div>
-      <label class=col-6>Total cost</label>
-      <input class=col-6 
-             v-model="spend"
-             disabled>
-    </div>
-    <div>
-      <label class="col-6">Years passed</label>
-      <input class="col-6" 
-             v-model="years"
-             disabled>
-    </div>
+  <div class="row margin"> 
+    <table class = "table table-striped col-3 centered">
+      <tbody>
+        <tr>
+          <td class="w-50">Winnings</td>
+          <td class="w-50">{{ totalWin }}</td>  
+        </tr>
+        <tr>
+          <td class="w-50">Spend</td>
+          <td class="w-50">{{ spend }}</td>
+        </tr>
+        <tr>
+          <td class="w-50">Years</td>
+          <td class="w-50">{{ years }}</td>
+        </tr>
+      </tbody>  
+    </table>
   </div>
 </template>
 

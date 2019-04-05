@@ -1,10 +1,13 @@
 <template>
   <div id="app">
-    <div class="margin-bottom">
+    <div class="mb-3">
       <h1>Lotto Dream Ruiner</h1>
     </div>
     <SetOptions/>
     <LottoPlay/>
+    <div class="mb-3">
+      <h3>Results</h3>
+    </div>
     <Results/>
   </div>
 </template>

@@ -5,13 +5,13 @@
              v-model=linesPerGame
              @change="setLinesPerGame">
       </label>
-      </div>
-      <div>
-        <label>Powerball <input type="checkbox"
+    </div>
+    <div>
+      <label>Powerball <input type="checkbox"
               v-model=powerball
               @change="setPowerball">
-        </label>
-      </div> 
+      </label>
+    </div> 
   </div>
 </template>
 
@@ -22,23 +22,21 @@ export default {
   data() {
     return {
       linesPerGame: 10,
-      powerball: false,
+      powerball: false
     };
   },
 
   methods: {
-  
     setLinesPerGame: function() {
-      this.$store.dispatch('gameOptions/updateLinesPerGame', this.linesPerGame)
+      this.$store.dispatch("gameOptions/updateLinesPerGame", this.linesPerGame);
     },
 
     setPowerball: function() {
-      this.$store.dispatch('gameOptions/updatePowerball', this.powerball)
-    },
+      this.$store.dispatch("gameOptions/updatePowerball", this.powerball);
+    }
   }
 };
 </script>
 
 <style scoped>
-
 </style>
