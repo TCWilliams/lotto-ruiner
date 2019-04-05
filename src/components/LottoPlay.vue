@@ -2,9 +2,13 @@
   <div>
     <div class="col-6 centered mb-3">
         <button class="btn btn-primary" 
-              @click="init"
-              :disabled="gameInterVal">Play</button>
-        <button class="btn btn-warning" @click="stop">Stop</button>
+                @click="start"
+                :disabled="gameInterVal">Play</button>
+        <button class="btn btn-warning" 
+                @click="stop">Stop</button>
+        <button class="btn btn-primary" 
+                @click="reset"
+                :disabled="gameInterVal">Reset</button>
     </div>
     <div class="row">
       <table class="table table-striped col-4 centered">
@@ -141,9 +145,8 @@ export default {
   },
 
   methods: {
-    init: function() {
-      console.log(this.linesPerGame)
-      // run the game until first division has been one!
+    start: function() {
+      // run the game until first division (or powerball if playing) has been one!
       this.gameInterVal = setInterval(() => {
         !this.winner && this.runGame();
       }, 1);
@@ -152,6 +155,28 @@ export default {
     stop: function() {
       clearInterval(this.gameInterVal);
       this.gameInterVal = null;
+    },
+
+    reset: function() {
+      this.winStatistics.powerball.count = 0
+      this.winStatistics.powerball.total = 0
+      this.winStatistics.divisionOne.count = 0
+      this.winStatistics.divisionOne.total = 0
+      this.winStatistics.divisionTwo.count = 0
+      this.winStatistics.divisionTwo.total = 0
+      this.winStatistics.divisionThree.count = 0
+      this.winStatistics.divisionThree.total = 0
+      this.winStatistics.divisionFour.count = 0
+      this.winStatistics.divisionFour.total = 0
+      this.winStatistics.divisionFive.count = 0
+      this.winStatistics.divisionFive.total = 0
+      this.winStatistics.divisionSix.count = 0
+      this.winStatistics.divisionSix .total = 0
+      this.winStatistics.totalWin = 0  
+      this.count = 0 
+      this.years = 0
+      this.spend = 0
+      this.updateResults()
     },
 
     /* returns an array of 6 random numbers between 1 and 40 */
@@ -221,7 +246,7 @@ export default {
 
         if (matched.length < 3) continue; // no wins, jump out of loop
         this.tallyWinnings(matched.length, bonusMatch, powerballMatch); // else add up winnings
-
+        this.updateResults()
         if (this.winner) {
           break;
         }
@@ -271,7 +296,10 @@ export default {
             this.winStatistics.totalWin += this.prizeAmounts.divisionSix;
           }
           break;
-      }
+      } 
+    },
+
+    updateResults: function() {
       this.$store.dispatch('results/updateTotalWin', this.winStatistics.totalWin)
       this.$store.dispatch('results/updateSpend', this.spend)
       this.$store.dispatch('results/updateYears', this.years)
