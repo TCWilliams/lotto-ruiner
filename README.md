@@ -5,6 +5,7 @@ VueJS app to show lotto results and cost over many games. Stops if you win power
 
 Cost and average prize amounts obtained from lotto.co.nz
 
+Deployed on Heroku https://lotto-ruiner.herokuapp.com/
 
 ## Project setup
 ```
