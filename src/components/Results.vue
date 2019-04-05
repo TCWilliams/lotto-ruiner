@@ -1,20 +1,20 @@
 <template>
-  <div>
+  <div class="col-6 centered">
     <div>
-      <label >Total winnings</label>
-      <input 
+      <label class="col-6">Total winnings</label>
+      <input class="col-6" 
              v-model="totalWin"
              disabled>
     </div>
     <div>
-      <label>Total cost</label>
-      <input
+      <label class=col-6>Total cost</label>
+      <input class=col-6 
              v-model="spend"
              disabled>
     </div>
     <div>
-      <label>Years passed</label>
-      <input
+      <label class="col-6">Years passed</label>
+      <input class="col-6" 
              v-model="years"
              disabled>
     </div>
