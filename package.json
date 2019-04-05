@@ -5,12 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-<<<<<<< HEAD
     "lint": "vue-cli-service lint"
-=======
-    "lint": "vue-cli-service lint",
-    "start": "node main.js"
->>>>>>> 8ab0107e0b849faae5e9f76df63a88fed7508fd6
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
