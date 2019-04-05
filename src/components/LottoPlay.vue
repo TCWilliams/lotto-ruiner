@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="col-6 centered mb-3">
+    <div class="mb-3">
         <button class="btn btn-primary" 
                 @click="start"
                 :disabled="gameInterVal">Play</button>
