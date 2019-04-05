@@ -1,5 +1,5 @@
 const state = {
-  linesPerGame: 0,
+  linesPerGame: 10,
   powerball: false
 }
 
